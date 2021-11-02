@@ -1,12 +1,8 @@
 package main
 
-import (
-	"fmt"
-)
-
 func main() {
-	c := make(chan int)
 
+	c := make(chan int)
 	go func() {
 		for i := 0; i < 10; i++ {
 			c <- i
@@ -14,7 +10,8 @@ func main() {
 		close(c)
 	}()
 
-	for n := range c {
-		fmt.Println(n)
+	for t := range c {
+		print(t)
 	}
+
 }
